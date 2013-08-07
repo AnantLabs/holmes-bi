@@ -16,7 +16,9 @@ class report_element {
     var $metadataid = 0;
     var $type = 0;
     var $name = "";
-    var $attributes = array();
+    var $conditions = array();
+    var $fields = array();
+    var $grouping = array();
 }
 
 ?>

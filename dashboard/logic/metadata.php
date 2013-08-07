@@ -8,8 +8,10 @@
 class metadaten {
     var $id = 0;
     var $tables = array();
+    var $tables_relations = array();
     var $fields = array();
     var $addition = "";
+    
 }
  
 ?>

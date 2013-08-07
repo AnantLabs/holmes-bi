@@ -14,9 +14,8 @@ define("FIELD_TYPE_SELECTION", 5);
 
 class metadata_field {
     var $id = 0;
-    var $metadataid = 0;
+    var $metadatatableid = 0;
     var $name = "";
-    var $privileg = "";
 }
 
 ?>

@@ -1,0 +1,19 @@
+State of the project
+====================
+In development - no release is made jet.
+
+AIM of holmes bi
+================
+The aim of holmes bi ist to build a complete bi plattform running on php with following parts:
+- Dashboard (show several kinds of reports - current in development)
+- Etl (extracting transforming loading tool - will come later)
+- Datamining (tool for extracting information from datas - that is a wish ;-))
+
+Basic Architectur
+=================
+This is a webbased solution to handle everything reports. It uses:
+- Webbrowser
+- PHP
+- Mysql (>= Version 5)
+- Jquery including JSON
+- JQuery UI (the current version you see in folder js in root)

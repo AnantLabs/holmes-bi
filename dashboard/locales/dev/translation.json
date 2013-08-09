@@ -1,0 +1,8 @@
+{
+    "login": {
+        "loginwindow" : "Login Window",
+        "username" : "Username",
+        "password" : "Password",
+        "button" : "Login"
+    }
+}

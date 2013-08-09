@@ -2,7 +2,10 @@
 
 define("INTERFACE_ACCESS", TRUE);
 
-if (file_exists("service/" . $object . "_" . $action . ".php")) {
+$object = $_REQUEST["object"];
+$action = $_REQUEST["action"];
+
+if (file_exists("services/" . $object . "_" . $action . ".php")) {
     try {
         include "lib/dbconnection.php";
         include "config.php";

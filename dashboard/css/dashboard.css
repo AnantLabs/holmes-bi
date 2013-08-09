@@ -1,4 +1,22 @@
 root { 
     display: block;
+    font-family: sans-serif;
 }
 
+#login_window {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.ui-widget-header {
+    background-color: gray;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+
+#loading {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}

@@ -17,7 +17,7 @@ root {
 body {
     margin: 0px; 
     padding: 0px;
-    font-family: "sans-serif";
+    font-family: sans-serif;
 }
 
 #head {
@@ -35,5 +35,5 @@ h1 {
 }
 
 #content {
-    
+    margin: auto 0px;
 }

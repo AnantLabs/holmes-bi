@@ -12,10 +12,13 @@ define("FIELD_TYPE_SELECTION", 5);
  * Cube field definition
  */
 
-class metadata_field {
+class metadata_field extends ormlib {
     var $id = 0;
     var $metadatatableid = 0;
     var $name = "";
+    function __construct() {
+        parent::__construct("metadata_field", "id");
+    }
 }
 
 ?>

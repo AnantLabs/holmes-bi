@@ -1,0 +1,74 @@
+/* 
+    Document   : styles
+    Created on : 08.08.2013, 21:33:29
+    Author     : alefen
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+* {
+    font-family: 'sans-serif' !important;/* <-- fonts */
+}
+
+body {
+    margin: 0px; 
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+#hbi_window_close {
+    float:right;
+}
+
+#head {
+    width: 100%; 
+    height: 80px; 
+    background-color: #b80000; 
+    padding: 0px;
+    border: 0px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+h1 {
+    font: "sans-serif";
+}
+
+#content {
+    margin: auto 0px;
+}
+#head_logo {
+    float: left;
+}
+#head_content {
+    float: right;
+    padding-left: 10px;
+    font-family: "sans-serif";
+}
+
+#login_table {
+    width:100%;
+}
+
+#hbi_tab_list {
+    width: 100%;
+    height: 20px;
+    padding-top: 10px;
+    border: 1px solid black;
+}
+.hbi_tab {
+    width: 100px;
+    height: 21px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    background-color: white;
+    text-align: center;
+    margin-left: 10px;
+}

@@ -15,13 +15,17 @@ define("REPORT_ELEMENT_FIELD_ATTRIBUTE_MONTH", 7);
 define("REPORT_ELEMENT_FIELD_ATTRIBUTE_MONTH_YEAR", 8);
 define("REPORT_ELEMENT_FIELD_ATTRIBUTE_WEEK_YEAR", 8);
 
-class report_element_field {
+class report_element_field extends ormlib {
     var $id = 0;
     var $name = "";
     var $type = 0;
     var $attribute = 0;
     var $order = 0;
     var $groupby = false;
+    
+    public function __construct() {
+        parent::__construct("report_element_field", "id");
+    }
 }
 
 ?>

@@ -9,9 +9,9 @@ define("REPORT_ELEMENT_TYPE_BARCHART",4);
 define("REPORT_ELEMENT_TYPE_LINECHART",5);
 
 /**
- * TODO
+ * Report Element
  */
-class report_element {
+class report_element extends ormlib {
     var $id;
     var $metadataid = 0;
     var $type = 0;
@@ -19,6 +19,12 @@ class report_element {
     var $conditions = array();
     var $fields = array();
     var $grouping = array();
+    
+    function __construct() {
+        parent::__construct("report_element", $key);
+    }
+    
+    
 }
 
 ?>

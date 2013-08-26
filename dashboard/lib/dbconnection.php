@@ -21,86 +21,86 @@ class dbconnection {
     var $metadb_password; //password for metadata db
     var $metadb_host; //host for metadata db
     
-    var $datadb_connection = null; //databaseobject for dashboard db
-    var $metadb_connection = null; //databaseobject for metadatabase db
+    var $datadb_connection = NULL; //databaseobject for dashboard db
+    var $metadb_connection = NULL; //databaseobject for metadatabase db
     
     /**
-     * TODO
+     * Init Element
      */
     public function init() {
-        $this->datadb = $config["db"]["name"];
-        $this->datadb_username = $config["db"]["username"];
-        $this->datadb_password = $config["db"]["password"];
-        $this->datadb_host = $config["db"]["host"];
+        global $config;
+        $this->datadb = $config["datadb"]["name"];
+        $this->datadb_username = $config["datadb"]["username"];
+        $this->datadb_password = $config["datadb"]["password"];
+        $this->datadb_host = $config["datadb"]["host"];
         
-        $this->metadb = $config["mb_db"]["name"];
-        $this->metadb_username = $config["mb_db"]["username"];
-        $this->metadb_password = $config["mb_db"]["password"];
-        $this->metadb_host = $config["mb_db"]["host"];
+        $this->metadb = $config["metadb"]["name"];
+        $this->metadb_username = $config["metadb"]["username"];
+        $this->metadb_password = $config["metadb"]["password"];
+        $this->metadb_host = $config["metadb"]["host"];
     }
     
     /**
-     * TODO
+     * Start Initialisierung
      */
     public function start() {
-        $this->datadb_connection = mysql_connect($this->datadb_host, $this->datadb_username, $this->datadb_password) or die("Keine Verbindung möglich: " . mysql_error());
+        $this->datadb_connection = mysql_connect($this->datadb_host, $this->datadb_username, $this->datadb_password, true) or die('Could not connect to mysql server.');
         mysql_select_db($this->datadb, $this->datadb_connection);
-        $this->metadb_connection = mysql_connect($this->metadb_host, $this->metadb_username, $this->metadb_password) or die("Keine Verbindung möglich: " . mysql_error());
+        $this->metadb_connection = mysql_connect($this->metadb_host, $this->metadb_username, $this->metadb_password, true) or die('Could not connect to mysql server.');
         mysql_select_db($this->metadb, $this->metadb_connection);
     }
     
     /**
-     * TODO
-     */
-    public function open_db_connection() {
-        
-    }
-    
-    /**
-     * TODO
-     */
-    public function open_md_connection() {
-        
-    }
-    
-    /**
-     * TODO
-     */
-    public function close_db_connection() {
-        
-    }
-    
-    /**
-     * TODO
-     */
-    public function clode_md_connection() {
-        
-    }
-    
-    /**
-     * TODO
-     * @param String $query query to be done
-     * @param int $type database to be done
-     */
-    public function do_query($query, $type) {
-        
-    }
-    
-    /**
-     * TODO 
-     * @param String $query query to be done
-     * @param int $type database to be done (@see TYPE_DASHBOARD_DB, @see TYPE_METADATA_DB)
-     */
-    public function do_query_response($query, $type) {
-        
-    }
-    
-    /**
-     * close all db connections
+     * Close Function
      */
     public function close() {
         mysql_close($this->datadb_connection);
         mysql_close($this->metadb_connection);
     }
+    
+    
+    /**
+     * @param String $query query to be done
+     */
+    public function do_query_meta($query) {
+        mysql_query($query, $this->metadb_connection);
+    }
+    
+    /**
+     * @param String $query query to be done
+     */
+    public function do_query_data($query) {
+        mysql_query($query, $this->datadb_connection);
+    }
+    
+    /**
+     * @param String $query query to be done
+     */
+    public function do_query_meta_response($query) {
+        return mysql_query($query, $this->metadb_connection);
+    }
+    
+    /**
+     * @param String $query query to be done
+     */
+    public function do_query_data_response($query) {
+        return mysql_query($query, $this->datadb_connection);
+    }
+    
+    /**
+     * 
+     * @return type ID of last insert mysql with dataresource meta
+     */
+    public function last_insert_meta() {
+        return mysql_insert_id($this->metadb_connection);
+    }
+    
+    /**
+     * @return type ID of last insert mysql with dataresource data
+     */
+    public function last_insert_data() {
+        return mysql_insert_id($this->datadb_connection);
+    }
+    
 }
 ?>

@@ -7,13 +7,17 @@ if (!defined('INTERFACE_ACCESS')) {
 /**
  * Cube definition for handling
  */
-class metadata_field_selection {
+class metadata_field_selection extends ormlib {
 
     var $id = 0;
     var $metadata_tableid = 0;
     var $name = "";
     var $value = "";
-
+    
+    function __construct() {
+        parent::__construct("metadata_field_selection", "id");
+    }
+    
 }
 
 ?>

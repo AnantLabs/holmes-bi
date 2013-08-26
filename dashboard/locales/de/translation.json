@@ -4,5 +4,10 @@
         "username" : "Benutzername",
         "password" : "Passwort",
         "button" : "Login"
-    }
+    },
+    "reporting": {
+        "maintab" : {
+            "name": "Navigation"
+        }
+    } 
 }

@@ -7,17 +7,18 @@ $action = $_REQUEST["action"];
 
 if (file_exists("services/" . $object . "_" . $action . ".php")) {
     try {
-        include "lib/dbconnection.php";
         include "config.php";
+        include "lib/dbconnection.php";
+        include "lib/ormlib.php";
         include "logic/group.php";
-        include "logic/query.php";
-        include "logic/query_fields.php";
-        include "logic/query_tables.php";
         include "logic/report.php";
-        include "logic/reportgroup.php";
-        include "logic/reportnavigation.php";
+        include "logic/report_navigation.php";
+        include "logic/report_navigation_report.php";
+        include "logic/report_navigation_structur.php";
+        include "logic/report_privileg.php";
         include "logic/user.php";
-        include "logic/usergroup.php";
+        include "logic/user_group.php";
+        include "logic/session.php";
         $dbconnection->init();
         $dbconnection->start();
         require_once("services/" . $object . "_" . $action . ".php");
@@ -28,6 +29,5 @@ if (file_exists("services/" . $object . "_" . $action . ".php")) {
 } else {
     echo "error no url";
 }
-
 
 ?>

@@ -1,10 +1,14 @@
 <?php
 if(!defined('INTERFACE_ACCESS')){die('Direct access not premitted');}
 
-class user {
+class user extends ormlib {
     var $id = 0;
     var $username = "";
     var $password = "";
-    var $language = "";
+    
+    public function __construct() {
+        parent::__construct("user", "id");
+    }
+    
 }
 ?>

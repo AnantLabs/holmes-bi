@@ -19,7 +19,7 @@ function show_message(content, posx, posy) {
     $("#hbi_message_window").append(content);
     $("#hbi_message_window").show();
     $("#hbi_message_window").css({position:"absolute",left:posx+"px",top:posy+"px"});
-    $("#hbi_message_window").css("border","1px solid black");
+    $("#hbi_message_window").css("border","1px solid #999");
     $("#hbi_message_window").css("background-color","white");
     $("#hbi_message_window").draggable();
 }
@@ -38,14 +38,14 @@ function show_loginwindow() {
     div += "</table>";
     div += "<div></div>";
     div += "</div>";
-    show_message(div,100,100);
+    show_message(div,200,200);
 }
 
 var navigation_structur_list;
 function show_content() {
     var div = "";
     div += "<div id=\"hbi_tab_list\">";
-    div += "<div class=\"hbi_tab\">+</div>";
+    div += "<div class=\"hbi_tab\">"+trans_value["reporting"]["maintab"]["name"]+"</div>";
     div += "</div>";
     div += "<div>";
     for(var i=0;i<navigation_structur_list.length;i++) {

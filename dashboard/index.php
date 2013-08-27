@@ -23,7 +23,7 @@
                 <a href="http://holmesbi.alfenory.de"><img src="images/logo_small.png" border="0"/></a>
             </div>
             <div id="head_content">
-                Test
+                
             </div>
         </div>
         <div id="content">

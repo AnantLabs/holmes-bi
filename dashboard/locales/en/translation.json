@@ -1,8 +1,13 @@
 {
     "login": {
-        "loginwindow" : "Login Window",
-        "username" : "Username",
-        "password" : "Password",
+        "loginwindow" : "Login Fenster",
+        "username" : "Benutzername",
+        "password" : "Passwort",
         "button" : "Login"
-    }
+    },
+    "reporting": {
+        "maintab" : {
+            "name": "Navigation"
+        }
+    } 
 }

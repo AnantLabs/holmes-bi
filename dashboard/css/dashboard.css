@@ -8,10 +8,11 @@ html * {
 }
 
 #hbi_message_window {
-    border: 1px solid black;
+    border: 1px solid #999;
     text-align: center;
     width: 300px;
     height: 300px;
+    border-radius: 5px;
 }
 
 
@@ -21,27 +22,27 @@ html * {
     padding: 0px;
     margin: 0px;
     background-color: #aaa;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #777;
 }
 
 #loading {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
 }
 
 .hbi_structur_box {
     width: 250px;
     height: 250px;
-    border: 1px solid black;
-    margin: 10px;
+    border: 1px solid #999;
+    margin: 25px;
     float: left;
     border-radius: 5px;
 }
 
 .hbi_structur_box_head {
     height:22px;
-    background-color: gray;
+    background-color: #aaa;
     font-weight:bold;
     width:245px;
     padding-left:5px;

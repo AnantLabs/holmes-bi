@@ -1,0 +1,23 @@
+#hbi_message_window {
+    border: 1px solid #999;
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+
+#hbi_message_window_head {
+    width: 300px;
+    height: 25px;
+    padding: 0px;
+    margin: 0px;
+    background-color: #aaa;
+    border-bottom: 1px solid #777;
+}
+
+#loading {
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+}

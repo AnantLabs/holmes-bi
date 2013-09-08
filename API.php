@@ -12,10 +12,12 @@ if (file_exists("services/" . $object . "_" . $action . ".php")) {
         include "lib/ormlib.php";
         include "logic/group.php";
         include "logic/report.php";
+        include "logic/report_element.php";
         include "logic/report_navigation.php";
         include "logic/report_navigation_report.php";
         include "logic/report_navigation_structur.php";
         include "logic/report_privileg.php";
+        include "logic/report_wrapper.php";
         include "logic/user.php";
         include "logic/user_group.php";
         include "logic/session.php";

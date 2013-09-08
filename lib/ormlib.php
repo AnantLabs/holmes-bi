@@ -1,20 +1,39 @@
 <?php
 
+
+
+/**
+ * ORM Class for entities.
+ * ORM = Object Relation Mapper
+ */
 class ormlib {
     
     var $className;
     var $key;
     
+    /**
+     * Constructor
+     * @param type $className
+     * @param type $key
+     */
     function __construct($className, $key) {
         $this->className = $className;
         $this->key = $key;
     }
     
-    function create_object() {
+    /**
+     * Create Object Instance
+     * @return type
+     */
+    function create_instance() {
         $r = new ReflectionClass($this->className);
         return $r->newInstanceArgs();
     }
     
+    /**
+     * Insert entity.
+     * @global type $dbconnection
+     */
     function insert() {
         global $dbconnection;
         $reflect = new ReflectionClass($this);
@@ -36,12 +55,24 @@ class ormlib {
         $this->$key1 = $dbconnection->last_insert_meta();
     }
     
-    function get($id) {
-        $keys = array("id");
-        $values = array($id);
+    /**
+     * returns an entity with key
+     * @param type $id
+     * @return type
+     */
+    function get($key) {
+        $keys = array($this->key);
+        $values = array($key);
         return $this->get_with_parameter($keys, $values);
     }
     
+    /**
+     * Returns one entity with parameters
+     * @global type $dbconnection
+     * @param type $keys
+     * @param type $values
+     * @return null
+     */
     function get_with_parameter($keys = array(), $values = array()) {
         global $dbconnection;
         $wheres = array();
@@ -57,7 +88,7 @@ class ormlib {
         }
         $query = "SELECT * FROM ".$this->className." $where";
         $result = $dbconnection->do_query_meta_response($query);
-        $object = $this->create_object();
+        $object = $this->create_instance();
         $reflect = new ReflectionClass($this);
         $props = $reflect->getProperties();
         while($myrow = mysql_fetch_array($result)) {
@@ -70,7 +101,8 @@ class ormlib {
                 }
             }
         }
-        if($object->id != "") {
+        $key = $this->key;
+        if($object->$key != "") {
             return $object;
         }
         else {
@@ -78,6 +110,10 @@ class ormlib {
         }
     }
     
+    /**
+     * Update entity.
+     * @global type $dbconnection
+     */
     function update() {
         global $dbconnection;
         $reflect = new ReflectionClass($this);
@@ -99,7 +135,15 @@ class ormlib {
         $dbconnection->do_query_meta_response($query);
     }
     
-    function get_list($keys = array(), $values = array()) {
+    /**
+     * Returns a list of entity with parameters
+     * @global type $dbconnection
+     * @param type $keys
+     * @param type $values
+     * @param type $order_by order f.e. index desc
+     * @return type
+     */
+    function get_list($keys = array(), $values = array(), $order_by = "") {
         global $dbconnection;
         $wheres = array();
         for($i=0;$i<count($keys);$i++) {
@@ -110,10 +154,11 @@ class ormlib {
             $where = " where ".implode(" AND ", $wheres);
         }
         $objects = array();
-        $query = "select * from ".$this->className." $where";
+        $query = "select * from ".$this->className." $where ".($order_by != "" ? "order by $order_by" : $order_by);
+        echo $query;
         $result = $dbconnection->do_query_meta_response($query);
         while($myrow = mysql_fetch_array($result)) {
-            $object = $this->create_object();
+            $object = $this->create_instance();
             $reflect = new ReflectionClass($object);
             $props = $reflect->getProperties();
             foreach($props as $prop) {
@@ -128,6 +173,7 @@ class ormlib {
         }
         return $objects;
     }
+    
 }
 
 ?>

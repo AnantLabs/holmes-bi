@@ -10,7 +10,7 @@ if (!defined('INTERFACE_ACCESS')) {
 class metadata_field_selection extends ormlib {
 
     var $id = 0;
-    var $metadata_tableid = 0;
+    var $metadata_table_id = 0;
     var $name = "";
     var $value = "";
     

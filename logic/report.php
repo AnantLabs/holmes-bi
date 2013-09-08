@@ -5,7 +5,6 @@ class report extends ormlib {
     var $id = 0;
     var $name = "";
     var $description = "";
-    var $elements = array();
     
     function __construct() {
         parent::__construct("report", "id");

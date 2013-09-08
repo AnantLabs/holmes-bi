@@ -13,17 +13,19 @@ define("REPORT_ELEMENT_TYPE_LINECHART",5);
  */
 class report_element extends ormlib {
     var $id;
-    var $metadataid = 0;
     var $type = 0;
     var $name = "";
-    var $conditions = array();
-    var $fields = array();
-    var $grouping = array();
+    var $report_id = 0;
+    var $index = 0;
+    var $metadata_id = 0;
     
     function __construct() {
-        parent::__construct("report_element", $key);
+        parent::__construct("report_element", "id");
     }
     
+    function get_list($keys = array(), $values = array()) {
+        return parent::get_list($keys, $values, "`index` desc");
+    }
     
 }
 

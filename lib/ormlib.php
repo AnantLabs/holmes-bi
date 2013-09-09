@@ -1,6 +1,6 @@
 <?php
 
-
+if(!defined('INTERFACE_ACCESS')){die('Direct access not premitted');}
 
 /**
  * ORM Class for entities.
@@ -124,7 +124,7 @@ class ormlib {
             $propname = $prop->name;
             if($prop->class==$this->className) {
                 if(!is_array($this->$propname) && $propname != $this->key) {
-                    $keys[] = $prop."='".$this->$propname."'";
+                    $keys[] = $propname."='".($this->$propname)."'";
                 }
             }
             if($propname==$this->key) {
@@ -155,7 +155,6 @@ class ormlib {
         }
         $objects = array();
         $query = "select * from ".$this->className." $where ".($order_by != "" ? "order by $order_by" : $order_by);
-        echo $query;
         $result = $dbconnection->do_query_meta_response($query);
         while($myrow = mysql_fetch_array($result)) {
             $object = $this->create_instance();

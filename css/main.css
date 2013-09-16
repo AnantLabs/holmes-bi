@@ -16,8 +16,39 @@
     border-bottom: 1px solid #777;
 }
 
+#hbi_message_window_head_name {
+    float:left;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-top: 4px;
+    color: white;
+}
+
+#hbi_window_close {
+    float:right;
+}
+
 #loading {
     border-left: 1px solid #999;
     border-right: 1px solid #999;
     border-bottom: 1px solid #999;
+}
+
+#login_table {
+    padding-left:10px;
+}
+
+#login_table tbody tr td {
+    text-align:left;
+}
+
+#username, #password, #view {
+    width: 150px;
+}
+.metanavigation {
+    color: black;
+    font-weight: bold;
+    padding-right:10px;
+    padding-top: 3px;
 }

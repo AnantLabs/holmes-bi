@@ -1,0 +1,66 @@
+.hbi_metadata_structur_box {
+    width: 270px;
+    height: auto;
+    border: 1px solid #999;
+    margin-left: 25px;
+    margin-top: 25px;
+    float: left;
+    border-radius: 5px;
+}
+
+.hbi_metadata_structur_box_head {
+    height:22px;
+    background-color: #aaa;
+    font-weight:bold;
+    width:265px;
+    padding-left:5px;
+}
+
+.hbi_metadata_structur_box_content_ul_0 {
+    margin:0px;
+    padding:0px;
+    width: 270px;
+    list-style-type:none;
+}
+
+.hbi_metadata_structur_box_content_ul_1 {
+    margin:0px;
+    padding:0px;
+    padding-left:5px;
+    list-style-type:none;
+}
+
+.hbi_metadata_structur_box_content_li_0 {
+    width: 265px;
+    padding-left: 5px;
+    border-bottom: 1px solid #aaa;
+    list-style: none;
+    margin: 0;
+    font-size: 13px;
+    font-weight: bold;
+}
+.hbi_metadata_structur_box_content_li_1 {
+    padding-left:5px;
+    width: auto;
+    font-size: 12px;
+    height:20px;
+    list-style: none;
+    margin: 0;
+    font-weight: normal;
+    height:20px;
+}
+
+.hbi_metadata_element {
+    text-align:left;
+    font-size:12px;
+}
+
+.hbi_metadata_header {
+    font-size:14px;
+    font-weight: bold;
+}
+
+.hbi_metadata_footer {
+    text-align:left;
+    padding-left:20px;
+}

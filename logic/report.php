@@ -18,7 +18,7 @@ class report extends ormlib {
             $user_group_list = $user_group->get_list(array("user_id"),array($session->user_id));
             for($i=0;$i<count($user_group_list);$i++) {
                 $report_privileg = new report_privileg();
-                $report_privileg_list = array_merge($report_privileg_list, $report_privileg->get_list(array("group_id","privileg_id"), array($user_group_list[$i]->group_id,  constant("PRIVILEG_ID_ACCESS"))));
+                $report_privileg_list = array_merge($report_privileg_list, $report_privileg->get_list(array("group_id","privileg_id"), array($user_group_list[$i]->group_id, report_privileg::PRIVILEG_ID_ACCESS)));
             }
             $report_list = array();
             $report = new report();

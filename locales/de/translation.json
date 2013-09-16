@@ -1,13 +1,59 @@
 {
+    "back": "zurück",
+    "create": "erstellen",
+    "save": "speichern",
+    "edit": "editieren",
     "login": {
-        "loginwindow" : "Login Fenster",
-        "username" : "Benutzername",
-        "password" : "Passwort",
-        "button" : "Login"
+        "loginwindow": "Login Fenster",
+        "username": "Benutzername",
+        "password": "Passwort",
+        "view": "Oberfläche",
+        "dashboard": "Dashboard",
+        "metadata": "Metadata",
+        "button": "Login"
     },
     "reporting": {
-        "maintab" : {
+        "maintab": {
             "name": "Navigation"
         }
-    } 
+    },
+    "metadata": {
+        "name": "Metadaten",
+        "table": "Tabellen",
+        "table_overview": "Tabellen Übersicht",
+        "table_relations": "Tabellen Verbindungen",
+        "fields": "Felder",
+        "meta_relations": "Meta Verbindungen",
+        "new": "neu",
+        "create_table": "Tabelle erstellen",
+        "edit_table": "Tabelle editieren",
+        "table_name": "Tabelle",
+        "Are you shure to remove table %s": "Sind Sie sicher die Tabelle %s zu löschen?",
+        "field_overview": "Datenfeld Übersicht",
+        "field": {
+            "type": {
+                "type": "Type",
+                "text": "Text",
+                "number": "Nummer",
+                "location": "Ortsdaten",
+                "currency": "Währungswert",
+                "selection": "Auswahl",
+                "date": "Datum",
+                "datetime": "Datum Zeit"
+            },
+            "key": "Key Feld",
+            "value": "Option Feld",
+            "typetext": "Typ",
+            "name": "Datenfeld",
+            "name_in_table": "Datenfeld in Tabelle",
+            "table" : "Tabelle"
+        },
+        "relation" : {
+            "type" : {
+                "1_N": "1:n",
+                "N_1": "n:1",
+                "N_M": "n:m"
+            }
+        }
+    }
 }

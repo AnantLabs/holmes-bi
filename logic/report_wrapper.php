@@ -8,8 +8,8 @@ if(!defined('INTERFACE_ACCESS')){die('Direct access not premitted');}
 class report_wrapper extends report {
     
     var $report_element_list = array();
+    var $report_element_field_list = array();
     var $report_element_metadata_mapping = array();
-    var $metadata_wrapper_list = array();
     
     public function __construct() {
         parent::__construct();
@@ -29,8 +29,13 @@ class report_wrapper extends report {
         $rw = new report_wrapper();
         $rw->id = $object->id;
         $rw->name = $object->name;
-        $report_element = new report_element();
-        $rw->report_element_list = $report_element->get_list(array("report_id"),array($id));
+        $rw->report_element_list = ormlib::get_list_from_instance(new report_element(), array("report_id"), array($id));
+        for($i=0;$i<count($rw->report_element_list);$i++) {
+            $rw->report_element_field_list = array_merge($rw->report_element_field_list, ormlib::get_list_from_instance(new report_element_field(), array("report_element_id"), array($rw->report_element_list[$i]->id)));
+        }
+        for($i=0;$i<count($rw->report_element_field_list);$i++) {
+            $rw->report_element_metadata_mapping[] = ormlib::get_from_instance(new metadata_field(), array("id"), array($rw->report_element_field_list[$i]->metadata_field_id));
+        }
         return $rw;
     }
 }

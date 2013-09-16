@@ -4,12 +4,11 @@
  /**
  * Cube class.
  */
- 
-class metadaten extends ormlib {
+class metadata extends ormlib {
     var $id = 0;
     var $name = "";
     function __construct() {
-        parent::__construct("metadaten", "id");
+        parent::__construct("metadata", "id");
     }
 }
  

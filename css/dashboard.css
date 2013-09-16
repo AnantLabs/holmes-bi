@@ -77,5 +77,105 @@
     border: 1px solid green;
 }
 
+.hbi_interface p {
+    font-size: 12px;
+}
 
+.dashboard_report_element {
+    width: auto;
+    height: auto;
+    border:1px solid #999;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 20px;
+    float: left;
+}
+.dashboard_report_element_head {
+    background-color: #aaa;
+    border-bottom: 1px solid #777;
+    padding-top: 4px;
+    height: 24px;
+}
+.dashboard_report_element_head_left {
+    padding-left: 5px;
+    padding-top: 2px;
+    float: left;
+    width: 150px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.dashboard_report_element_head_right {
+    float: right;
+    width:60px;
+    padding-right: 5px;
+    text-align: right;
+}
+.dashboard_table {
+    border: 1px solid black;
+    margin: 5px;
+    height: auto;
+    width: auto;
+    float:left;
+}
+.dashboard_table_head {
+    float:left;
+    height: 300px;
+    width: auto;
+    float:left;
+    border-bottom: 1px solid black;
+}
+.dashboard_table_head_element {
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    border-right: 1px solid black;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: block;
+}
+.dashboard_table_head_element_last {
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: block;
+}
+.dashboard_table_content_td {
+    float: left;
+    height: 20px;
+    border-right: 1px solid #999;
+}
+
+.dashboard_table_content_td_end {
+    float: left;
+    height: 20px;
+}
+
+.dashboard_table_footer * {
+    float:left;
+}
+
+.dashboard_table_content_row {
+    float: left;
+    height: 20px;
+    border-bottom: 1px solid #999;
+}
+
+.dashboard_table_content {
+    font-size: 12px;
+    padding: 5px;
+    float: left;
+    width: auto;
+}
+.dashboard_table_footer {
+    font-size: 12px;
+    padding: 5px;
+    float: left;
+    border-top: 1px solid black;
+}
+.dashboard_table_pagination_number {
+    width: 20px;
+    text-align: center;
+}
 

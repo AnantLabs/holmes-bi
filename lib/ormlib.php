@@ -22,6 +22,35 @@ class ormlib {
     }
     
     /**
+     * Returns a list of properties of this class.
+     * @return type
+     */
+    function get_properties() {
+        $keys = array();
+        $reflect = new ReflectionClass($this);
+        $props = $reflect->getProperties();
+        foreach($props as $prop) {
+            $propname = $prop->name;
+            if($prop->class==$this->className) {
+                if(!is_array($this->$propname)) {
+                    $keys[] = $propname;
+                }
+            }
+        }
+        return $keys;
+    }
+    
+    /**
+     * 
+     */
+    function read_from_request() {
+        $props = $this->get_properties();
+        foreach($props as $prop) {
+            $this->$prop = $_REQUEST[$prop];
+        }
+    }
+    
+    /**
      * Create Object Instance
      * @return type
      */
@@ -49,7 +78,7 @@ class ormlib {
                 }
             }
         }
-        $query = "INSERT INTO ".$this->className." (".implode(",", $keys).") VALUES (\"".implode("\",\"",$values)."\")";
+        $query = "INSERT INTO ".$this->className." (`".implode("`,`", $keys)."`) VALUES (\"".implode("\",\"",$values)."\")";
         $dbconnection->do_query_meta($query);
         $key1 = $this->key;
         $this->$key1 = $dbconnection->last_insert_meta();
@@ -135,6 +164,14 @@ class ormlib {
         $dbconnection->do_query_meta_response($query);
     }
     
+    function remove() {
+        global $dbconnection;
+        $key = $this->key;
+        $id = $this->$key;
+        $query = "delete from  ".$this->className." where $key = '$id'";
+        $dbconnection->do_query_meta_response($query);
+    }
+    
     /**
      * Returns a list of entity with parameters
      * @global type $dbconnection
@@ -171,6 +208,20 @@ class ormlib {
             $objects[] = $object;
         }
         return $objects;
+    }
+    
+    public static function get_list_from_instance($instance, $keys = array(), $values = array()) {
+        return $instance->get_list($keys, $values);
+    }
+    
+    public static function get_from_instance($instance, $keys = array(), $values = array()) {
+        return $instance->get_with_parameter($keys, $values);
+    }
+    
+    public static function remove_from_instance($instance, $where) {
+        global $dbconnection;
+        $query = "delete from ".$instance->className." where $where";
+        $dbconnection->do_query_meta_response($query);
     }
     
 }

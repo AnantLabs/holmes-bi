@@ -2,9 +2,10 @@
 
 if(!defined('INTERFACE_ACCESS')){die('Direct access not premitted');}
 
-define("PRIVILEG_ID_ACCESS", 1);
-
 class report_privileg extends ormlib {
+    
+    const PRIVILEG_ID_ACCESS = 1;
+    
     var $id = 0;
     var $report_id = "";
     var $group_id = "";

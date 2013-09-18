@@ -2,10 +2,9 @@
 <?php
     include "config.php";
 ?>
-
 <html>
     <head>
-        <title>Holmes BI - PHP Business Intelligence Solution</title>
+        <title>Holmes BI - PHP Business Intelligence Solution - Version $Id:$</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -41,9 +40,7 @@
             <div id="head_logo">
                 <a href="http://holmesbi.alfenory.de"><img src="images/logo_small.png" border="0"/></a>
             </div>
-            <div id="head_content"> 
-                <br/>
-                V: $Id:$
+            <div id="head_content">
             </div>
         </div>
         <div id="content">

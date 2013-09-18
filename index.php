@@ -41,9 +41,9 @@
             <div id="head_logo">
                 <a href="http://holmesbi.alfenory.de"><img src="images/logo_small.png" border="0"/></a>
             </div>
-            <div id="head_content">
+            <div id="head_content"> 
                 <br/>
-                Version: $Id:$
+                V: $Id:$
             </div>
         </div>
         <div id="content">

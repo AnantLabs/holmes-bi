@@ -1,6 +1,7 @@
 var navigation_structur_list = new Array();
 var report_list = new Array();
 var current_report = -1;
+
 function dashboard_show_content() {
     var div = "";
     div += "<div id=\"hbi_tab_list\">";
@@ -23,6 +24,7 @@ function dashboard_show_content() {
         div += dashboard_show_maintab();
     }
     else {
+        div += dashboard_show_form();
         div += dashboard_show_current_report();
     }
     $("#content").empty();
@@ -47,6 +49,95 @@ function dashboard_show_maintab() {
     div += "</div>";
     return div;
 }
+function dashboard_show_form() {
+    var report = null;
+    for(var i=0;i<report_list.length;i++) {
+        if(current_report*1===report_list[i].id*1) {
+            report = report_list[i];
+        }
+    }
+    if(report === null) {
+        return "";
+    }
+    
+    var fields = report.report_metadata_field_condition;
+    
+    if(fields.length===0) return "";
+    
+    var div = "";
+    div += "<div class=\"hbi_report_form\">";
+    for(var i=0;i<fields.length;i++) {
+        div += "<div class=\"hbi_report_form_element\">";
+        div += "<div class=\"hbi_report_form_element_left\">"+fields[i].name+"</div>";
+        var element = "";
+        var arr_list = report.report_values[fields[i].name];
+        if(fields[i].type*1 === 1 || fields[i].type*1 === 5) { //Text or Selectfield
+            element += "<select id=\"report_field_"+fields[i].id+"\">";
+            element += "<option value=\"\"></option>";
+            for(var j=0;j<arr_list.length;j++) {
+                element += "<option value=\""+arr_list[j]+"\">"+arr_list[j]+"</option>";
+            }
+            element += "</select>";
+        }
+        if(fields[i].type*1 === 2 || fields[i].type*1 === 4) { //Number or Currency
+            element = "<input type=\"text\" id=\"report_field_"+fields[i].id+"_from\" value=\"\"/> <input type=\"text\" id=\"report_field_"+fields[i].id+"_to\" value=\"\"/> ";
+        }
+        if(fields[i].type*1 === 6 || fields[i].type*1 === 7) { //Date or DateTime
+            element = "<input type=\"text\" id=\"report_field_"+fields[i].id+"_from\" value=\"\"/> <input type=\"text\" id=\"report_field_"+fields[i].id+"_to\" value=\"\"/> ";
+        }
+        if(fields[i].type*1 === 3) { //GPS Field
+            element = "<input type=\"text\" id=\"report_field_"+fields[i].id+"_from\" value=\"\"/> <input type=\"text\" id=\"report_field_"+fields[i].id+"_to\" value=\"\"/> ";
+        }
+        div += "<div class=\"hbi_report_form_element_right\">"+element+"</div>";
+        div += "</div>";
+    }
+    div += "<div class=\"hbi_report_form_element\"><button class=\"hbi_report_form_element_button\" onClick=\"dashboard_refresh_report("+report.id+")\">starten</button></div>";
+    div += "</div>";
+    
+    return div;
+}
+
+function dashboard_refresh_report(nr) {
+    var report = null;
+    for(var i=0;i<report_list.length;i++) {
+        if(current_report*1===report_list[i].id*1) {
+            report = report_list[i];
+        }
+    }
+    if(report === null) {
+        return "";
+    }
+    
+    var fields = report.report_metadata_field_condition;
+    var field_list_value = new Array();
+    var field_list_key = new Array();
+    for(var i=0;i<fields.length;i++) {
+        if(fields[i].type*1 === 1 || fields[i].type*1 === 5) { //Text or Selectfield
+            field_list_value.push($("#report_field_"+fields[i].id).val());
+            field_list_key.push(fields[i].id);
+        }
+        else {
+            //TODO
+        }
+    }
+    
+    $.ajax(
+        {
+            url: "API.php?rand=" + Math.random() + "&object=query&action=get&session_id=" + session_id+"&report_id="+report.id,
+            data : {field_list_key : field_list_key, field_list_value : field_list_value},
+            dataType: "json",
+            success:
+                function(data) {
+                    console.log(data);
+                },
+            error:
+                function(xhr, textStatus) {
+                    console.log(textStatus);
+                    console.log(xhr);
+                }
+        }
+    );
+}
 
 function dashboard_show_current_report() {
     var report = null;
@@ -59,10 +150,12 @@ function dashboard_show_current_report() {
         return "";
     }
     var div = "";
-    div += "<div>";
+    div += "<div class=\"hbi_report_view\">";
+    div += "<div class=\"hbi_report_view1\">";
     for(var i=0;i<report.report_element_list.length;i++) {
         div += dashboard_show_report_element(report.report_element_list[i]);
     }
+    div += "</div>";
     div += "</div>";
     return div;
 }
@@ -87,8 +180,8 @@ function dashboard_show_report_element(report_element) {
     div += "<div class=\"dashboard_report_element\" id=\"dashboard_report_element"+report_element.id+"\">";
     div += "<div class=\"dashboard_report_element_head\">";
     div += "<div class=\"dashboard_report_element_head_left\">"+report_element.name+"</div>";
-    var config = "<a href=\"#\" onClick=\"dashboard_show_config("+report_element.id+")\"><img src=\"images/config_icon.png\" onClick=\"\"/></a>";
-    var form = "<a href=\"#\" onClick=\"dashboard_show_form("+report_element.id+")\"><img src=\"images/form_icon.png\"/>";
+    var config = "";//<a href=\"#\" onClick=\"dashboard_show_config("+report_element.id+")\"><img src=\"images/config_icon.png\" onClick=\"\"/></a>";
+    var form = "";//<a href=\"#\" onClick=\"dashboard_show_form("+report_element.id+")\"><img src=\"images/form_icon.png\"/>";
     if(report_element.type*1 !== 1) {
         form = "";
     }
@@ -111,6 +204,7 @@ function dashboard_show_report_element(report_element) {
     return div;
 }
 
+/*
 function dashboard_show_form() {
     var div = "";
     var report = null;
@@ -128,7 +222,7 @@ function dashboard_show_form() {
     
     $("#dashboard_report_element_form"+report_element.id).clear();
     $("#dashboard_report_element_form"+report_element.id).append(div);
-}
+}*/
 
 function dashboard_update_report_element(report_element) {
     switch(report_element.type*1) {
@@ -183,7 +277,6 @@ function dashboard_get_report_element_fields(report_element) {
 
 function dashboard_show_report_element_table(report_element) {
     var div = "";
-    
     div += "<div class=\"dashboard_table\" id=\"dashboard_table"+report_element.id+"\">";
     div += "<div class=\"dashboard_table_head\" id=\"dashboard_table_head"+report_element.id+"\">";
     var fields = dashboard_get_report_element_fields(report_element);
@@ -232,7 +325,7 @@ function dashboard_update_report_element_table(report_element) {
 
 function dashboard_show_report_element_map(report_element) {
     var div = "";
-    //div += "<div><img src=\"http://b.tile.cloudmade.com/32378f7b7a3e4e538d9a79bc045829e8/1/256/15/17599/10746.png\"></div>";
+    div += "<div><img src=\"http://b.tile.cloudmade.com/"+cloudmade_key+"/1/256/15/17599/10746.png\"></div>";
     return div;
 }
 

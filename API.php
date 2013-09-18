@@ -21,6 +21,7 @@ if (file_exists("services/" . $object . "_" . $action . ".php")) {
         include "logic/report_navigation.php";
         include "logic/report_navigation_report.php";
         include "logic/report_navigation_structur.php";
+        include "logic/report_metadata_condition.php";
         include "logic/report_privileg.php";
         include "logic/report_wrapper.php";
         

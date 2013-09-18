@@ -13,4 +13,6 @@ $config["metadb"]["username"] = "TODO";
 $config["metadb"]["password"] = "TODO";
 $config["metadb"]["host"] = "TODO";
 
+$config["clodemade_key"] = "TODO";
+
 ?>

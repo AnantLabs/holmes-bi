@@ -7,7 +7,6 @@ $(document).ready(function() {
 function init() {
     init_view();
     load_lang(); //First step load lang file
-    console.log("init");
 }
 
 var trans_value;
@@ -19,8 +18,8 @@ function load_lang() {
 }
 
 function load_lang_1() {
-    console.log("test");
-    $.ajax({url: "locales/" + user_lang + "/translation.json"}
+    $.ajax(
+        {url: "locales/" + user_lang + "/translation.json"}
     ).done(
             function(data) {
                 trans_value = data;

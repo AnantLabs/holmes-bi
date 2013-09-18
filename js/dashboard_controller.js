@@ -81,7 +81,7 @@ function dashboard_remove_navigation(nr) {
             }
             report_list.splice(i,1);
             i = report_list.length;
-            //TODO OpenTabs
+            dashboard_update_current_project();
         }
     }
     dashboard_show_content();

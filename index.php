@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+    include "config.php";
+?>
+
 <html>
     <head>
         <title>Holmes BI - PHP Business Intelligence Solution</title>
@@ -29,6 +33,7 @@
             var session_id = "<?php echo $_SESSION["user_session_id"];?>";
             var trans_value = "";
             var user_lang = "";
+            var cloudmade_key = "<?php echo $config["clodemade_key"]; ?>";
         </script>
     </head>
     <body>
@@ -37,7 +42,8 @@
                 <a href="http://holmesbi.alfenory.de"><img src="images/logo_small.png" border="0"/></a>
             </div>
             <div id="head_content">
-                
+                <br/>
+                Version: $Id:$
             </div>
         </div>
         <div id="content">

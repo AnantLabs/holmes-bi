@@ -179,3 +179,43 @@
     text-align: center;
 }
 
+.hbi_report_form {
+    width: 100%;
+    border-bottom: 1px solid #aaa;
+    background-color: #fff;
+    height: 50px;
+}
+.hbi_report_form_element {
+    float: left;
+    height: 35px;
+    padding-top: 5px;
+    padding-left: 20px;
+}
+.hbi_report_form_element_button {
+    float: left;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid green;
+    border-radius: 3px;
+}
+.hbi_report_form_element_left {
+    float: left;
+    padding: 5px;
+    margin: 5px;
+}
+.hbi_report_form_element_right {
+    float: right;
+    padding: 5px;
+    margin: 5px;
+    border-right: 1px solid #aaa;
+}
+
+.hbi_report_view {
+    height: auto;
+    border-top: 3px solid #eee;
+}
+
+.hbi_report_view1 {
+    height: auto;
+    border-top: 1px solid #aaa;
+}

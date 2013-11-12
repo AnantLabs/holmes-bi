@@ -16,6 +16,16 @@
         <script src="js/jquery.min-2.0.3.min.js" type="text/javascript"></script>
         <script src="js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
         
+        <script src="js/lib.js" type="text/javascript"></script>
+        
+        <link rel="stylesheet" href="leaflet/leaflet.css" />
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="leaflet/leaflet.ie.css" />
+        <![endif]-->
+        <script src="leaflet/leaflet.js"></script>
+        
+        <script src="js/settings.js" type="text/javascript"></script>
+        
         <script src="js/main_controller.js" type="text/javascript"></script>
         <script src="js/main_model.js" type="text/javascript"></script>
         <script src="js/main_view.js" type="text/javascript"></script>
@@ -46,5 +56,6 @@
         <div id="content">
             
         </div>
+        <div style="text-align:center"><a href="http://www.alfenory.de"><img src="images/powered.png" border="0"/></a></div>
     </body>
 </html>

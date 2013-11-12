@@ -7,7 +7,7 @@ if(!defined('INTERFACE_ACCESS')){die('Direct access not premitted');}
 class user_settings extends ormlib {
     var $id = 0;
     var $user_id = 0;
-    var $key = "";
+    var $key_value = "";
     var $value = "";
     function __construct() {
         parent::__construct("user_settings", "id");

@@ -1,0 +1,4 @@
+Installation Instruction
+1. Create Datadbs (Metadb, Datadb) and create Database User
+2. Create Datastructur (metadb.sql in metadb)
+3. Change login into metadata and start

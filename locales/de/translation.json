@@ -1,8 +1,14 @@
 {
+    "nocontent": "kein Inhalt",
+    "location": "Daten",
+    "date_format": "DD-MM-YYYY",
+    "date_time_format": "DD.MM.YYYY hh:mm:ss",
     "back": "zurück",
     "create": "erstellen",
     "save": "speichern",
     "edit": "editieren",
+    "setting" : "Einstellung",
+    "logout" : "Ausloggen",
     "login": {
         "loginwindow": "Login Fenster",
         "username": "Benutzername",
@@ -55,5 +61,49 @@
                 "N_M": "n:m"
             }
         }
+    },
+    "position" : "Position",
+    
+    "group" : {
+        "groupname" : "Gruppenname",
+        "name" : "Gruppen",
+        "new" : "Neue Gruppe",
+        "edit" : "Vorhandene Gruppe bearbeiten",
+        "create" : "Neue Gruppe erstellen",
+        "usergroup" : "Folgende Benutzer sind in der Gruppe",
+        "add_usergroup" : "Benutzer hinzufügen",
+        "groupname_not_empty" : "Gruppenname darf nicht leer sein!",
+        "group_not_change_able" : "Die Gruppen HBI_ADMIN und HBI_DASHBOARD sind nicht änderbar!",
+        "group_save_successful" : "Gruppe wurde erfolgreich gespeichert!",
+        "remove" : "löschen",
+        "remove_question" : "Sind Sie sicher, dass Sie die Gruppe '%s' löschen wollen?",
+        "not_remove_able" : "Die Gruppen HBI_ADMIN und HBI_DASHBOARD können nicht gelöscht werden!"
+    },
+    
+    "user" : {
+        "username" : "Benutzer",
+        "password" : "Passwort",
+        "name" : "Benutzer",
+        "new" : "Neuer Benutzer",
+        "edit" : "Vorhanden Benutzer bearbeiten",
+        "create" : "Neuen Benutzer stellen",
+        "usergroup" : "Gruppenzugehörigkeit des Benutzer",
+        "add_usergroup" : "Gruppe hinzufügen",
+        "user_not_empty" : "Benutzername und Password dürfen nicht leer sein!",
+        "user_not_change_able" : "Der Benutzer admin ist nicht änderbar!",
+        "user_save_successful" : "Benutzer wurde erfolgreich gespeichert!",
+        "remove" : "löschen",
+        "remove_question" : "Sind Sie sicher, dass Sie den Benutzer '%s' löschen wollen?",
+        "not_remove_able" : "Der Benutzer admin kann nicht gelöscht werden!"
+    },
+    "reportstructur" : {
+        "name" : "Report Struktur"
+    },
+    "reportdesigner" : {
+        "name" : "Reportdesigner"
+    },
+    "error" : {
+        "name" : "Fehler",
+        "servercommunication" : "Fehler mit der Serverkommunikation"
     }
 }

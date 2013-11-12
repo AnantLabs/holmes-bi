@@ -5,7 +5,7 @@ if(!defined('INTERFACE_ACCESS')){die('Direct access not premitted');}
 class session extends ormlib {
     
     const GROUP_DASHBOARD = "HBI_DASHBOARD";
-    const GROUP_METADATA = "HBI_METADATA";
+    const GROUP_METADATA = "HBI_ADMIN";
     
     var $id;
     var $session_id;
@@ -25,6 +25,8 @@ class session extends ormlib {
         $keys = array("username","password");
         $values = array($username, md5($password));
         $user1 = $user->get_with_parameter($keys, $values);
+        //error_log(var_export($user1)); 
+        //error_log("view: $view");
         if($user1!=null) {
             if(
                     ($view*1 === 1 && $user1->has_group(session::GROUP_DASHBOARD) === true) ||

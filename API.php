@@ -18,17 +18,17 @@ if (file_exists("services/" . $object . "_" . $action . ".php")) {
         include "logic/report.php";
         include "logic/report_element.php";
         include "logic/report_element_field.php";
+        include "logic/report_metadata_condition.php";
         include "logic/report_navigation.php";
         include "logic/report_navigation_report.php";
         include "logic/report_navigation_structur.php";
-        include "logic/report_metadata_condition.php";
         include "logic/report_privileg.php";
         include "logic/report_wrapper.php";
+        include "logic/query.php";
         
         //Metadata includes
         include "logic/metadata.php";
         include "logic/metadata_field.php";
-        include "logic/metadata_field_selection.php";
         include "logic/metadata_relation.php";
         include "logic/metadata_table.php";
         include "logic/metadata_table_relation.php";

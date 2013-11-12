@@ -18,6 +18,7 @@ body {
     margin: 0px; 
     padding: 0px;
     font-family: sans-serif;
+    color: #555;
 }
 
 #hbi_window_close {
@@ -26,28 +27,28 @@ body {
 
 #head {
     width: 100%; 
-    height: 80px; 
-    background-color: #b80000; 
+    height: 65px; 
+    background-color: white; 
     padding: 0px;
     border: 0px;
-    border-bottom: 2px solid red;
-    border-top: 3px solid #cc0000;
-}
-
-h1 {
-    font: "sans-serif";
+    border-bottom: 2px solid #ccc;
+    border-top: 3px solid #777;
 }
 
 #content {
-    border-top: 1px solid #555;
+    border-top: 1px solid #777;
     margin: auto 0px;
+    min-height: 500px;
 }
+
 #head_logo {
     float: left;
     padding-left:10px;
 }
+
 #head_content {
     float: right;
+    padding-top: 3px;
     padding-left: 10px;
     font-family: "sans-serif";
 }
@@ -64,7 +65,6 @@ h1 {
     background-color: #ddd;
 }
 .hbi_tab, .hbi_tab_closed {
-    width: 150px;
     height: 20px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -74,11 +74,13 @@ h1 {
     background-color: white;
     text-align: center;
     margin-left: 10px;
-    padding-left:5px;
-    padding-right:5px;
+    padding-left:10px;
+    padding-right:10px;
     padding-top:5px;
     float: left;
     border-bottom: 1px solid white;
+    color: #777;
+    font-weight: bold;
 }
 
 .hbi_tab_closed {
@@ -92,4 +94,14 @@ h1 {
 
 .hbi_interface ul {
     padding-left: 20px;
+}
+a { 
+    font-weight: bold;  
+    text-decoration: none;
+    color: #555;
+}
+
+button {
+    text-decoration: none;
+    color: #555;
 }

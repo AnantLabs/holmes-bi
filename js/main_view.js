@@ -30,9 +30,9 @@ function close_message() {
 
 function show_loginwindow() {
     var div = "";
-    div += "<h1>"+trans_value.login.loginwindow+"</h1>";
+    div += "<h1 class=\"hbi_metadata_header\">"+trans_value.login.loginwindow+"</h1>";
     div += "<table id=\"login_table\"><tbody>";
-    div += "<tr><td>"+trans_value.login.username+"</td><td><input type=\"text\" id=\"username\" name=\"username\" value=\"\"/></td></tr>";
+    div += "<tr><td>"+trans_value.login.username+"</td><td><input type=\"ctext\" id=\"username\" name=\"username\" value=\"\"/></td></tr>";
     div += "<tr><td>"+trans_value.login.password+"</td><td><input type=\"password\" id=\"password\" name=\"password\" value=\"\"/></td></tr>";
     div += "<tr><td>"+trans_value.login.view+"</td><td><select id=\"view\">";
     div += "<option value=\"1\">"+trans_value.login.dashboard+"</option>";
@@ -42,13 +42,17 @@ function show_loginwindow() {
     div += "</tbody></table>";
     div += "<div></div>";
     div += "</div>";
-    show_message(trans_value["login"]["loginwindow"], div, 200, 200);
+    show_message(trans_value["login"]["loginwindow"], div, 120, 120);
 }
 
 
 function show_metanvigation() {
     var div = "";
-    div += "<a href=\"#\" onClick=\"logout()\" class=\"metanavigation\">Logout</a>";
+    div += "<a href=\"#\" onClick=\"settings()\" class=\"metanavigation\">"+trans_value.setting+"</a>";
+    div += "<a href=\"#\" onClick=\"logout()\" class=\"metanavigation\">"+trans_value.logout+"</a>";
     $("#head_content").empty();
     $("#head_content").append(div);
 }
+
+
+

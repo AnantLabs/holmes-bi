@@ -19,7 +19,8 @@ function load_lang() {
 
 function load_lang_1() {
     $.ajax(
-        {url: "locales/" + user_lang + "/translation.json"}
+        {url: "locales/" + user_lang + "/translation.json", dataType: "json"}
+        
     ).done(
             function(data) {
                 trans_value = data;

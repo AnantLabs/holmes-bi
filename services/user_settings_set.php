@@ -9,10 +9,9 @@ if($session->is_valid()) {
     for($i=0;$i<count($user_settings);$i++) {
         $users = new user_settings();
         $users->user_id = $session->user_id;
-        $users->key = $user_settings[$i]["key"];
+        $users->key_value = $user_settings[$i]["key"];
         $users->value = $user_settings[$i]["value"];
         $users->insert();
-        echo "test";
     }
     echo true;
 }

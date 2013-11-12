@@ -8,7 +8,7 @@ function dashboard_get_navigation() {
     var url = "API.php?rand=" + Math.random() + "&object=navigation&action=get&session_id="+session_id;
     $.getJSON(url, function(data) {
         navigation_structur_list = data;
-        dashboard_load_setting_list();
+        load_setting_list(0);
     });
 }
 
@@ -85,12 +85,6 @@ function dashboard_remove_navigation(nr) {
         }
     }
     dashboard_show_content();
-}
-
-function dashboard_switch_tab(report_id) {
-    current_report = report_id;
-    dashboard_show_content();
-    //TODO Save current report
 }
 
 function dashboard_find_report_navigation(nav_struc, id) {

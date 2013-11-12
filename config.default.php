@@ -14,5 +14,7 @@ $config["metadb"]["password"] = "TODO";
 $config["metadb"]["host"] = "TODO";
 
 $config["clodemade_key"] = "TODO";
+date_default_timezone_set("Europe/Berlin");
+
 
 ?>

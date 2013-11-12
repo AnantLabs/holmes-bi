@@ -31,9 +31,11 @@ class ormlib {
         $props = $reflect->getProperties();
         foreach($props as $prop) {
             $propname = $prop->name;
-            if($prop->class==$this->className) {
-                if(!is_array($this->$propname)) {
-                    $keys[] = $propname;
+            if($propname != "className" && $propname != "key") {
+                if($prop->class==$this->className) {
+                    if(!is_array($this->$propname)) {
+                        $keys[] = $propname;
+                    }
                 }
             }
         }
@@ -72,13 +74,14 @@ class ormlib {
         foreach($props as $prop) {
             $propname = $prop->name;
             if($prop->class==$this->className) {
-                if(!is_array($this->$propname) && $this->key != $propname) {
+                if(!is_array($this->$propname) && $this->key != $propname && $propname != "key" && $propname != "className") {
                     $keys[] = $propname;
                     $values[] = $this->$propname;
                 }
             }
         }
-        $query = "INSERT INTO ".$this->className." (`".implode("`,`", $keys)."`) VALUES (\"".implode("\",\"",$values)."\")";
+        $query = "INSERT INTO `".$this->className."` (`".implode("`,`", $keys)."`) VALUES (\"".implode("\",\"",$values)."\")";
+        error_log($query);
         $dbconnection->do_query_meta($query);
         $key1 = $this->key;
         $this->$key1 = $dbconnection->last_insert_meta();
@@ -115,7 +118,7 @@ class ormlib {
         else {
             return NULL;
         }
-        $query = "SELECT * FROM ".$this->className." $where";
+        $query = "SELECT * FROM `".$this->className."` $where";
         $result = $dbconnection->do_query_meta_response($query);
         $object = $this->create_instance();
         $reflect = new ReflectionClass($this);
@@ -160,7 +163,8 @@ class ormlib {
                 $key = $this->$propname;
             }
         }
-        $query = "update ".$this->className." set ".implode(",", $keys)." where ".$this->key." = '$key'";
+        $query = "update `".$this->className."` set ".implode(",", $keys)." where ".$this->key." = '$key'";
+        error_log($query);
         $dbconnection->do_query_meta_response($query);
     }
     
@@ -168,7 +172,7 @@ class ormlib {
         global $dbconnection;
         $key = $this->key;
         $id = $this->$key;
-        $query = "delete from  ".$this->className." where $key = '$id'";
+        $query = "delete from `".$this->className."` where $key = '$id'";
         $dbconnection->do_query_meta_response($query);
     }
     
@@ -191,7 +195,7 @@ class ormlib {
             $where = " where ".implode(" AND ", $wheres);
         }
         $objects = array();
-        $query = "select * from ".$this->className." $where ".($order_by != "" ? "order by $order_by" : $order_by);
+        $query = "select * from `".$this->className."` $where ".($order_by != "" ? "order by $order_by" : $order_by);
         $result = $dbconnection->do_query_meta_response($query);
         while($myrow = mysql_fetch_array($result)) {
             $object = $this->create_instance();
@@ -220,7 +224,8 @@ class ormlib {
     
     public static function remove_from_instance($instance, $where) {
         global $dbconnection;
-        $query = "delete from ".$instance->className." where $where";
+        $query = "delete from `".$instance->className."` where $where";
+        error_log($query);
         $dbconnection->do_query_meta_response($query);
     }
     

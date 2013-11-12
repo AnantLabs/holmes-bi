@@ -78,7 +78,7 @@
 }
 
 .hbi_interface p {
-    font-size: 12px;
+    font-size: 1em;
 }
 
 .dashboard_report_element {
@@ -101,7 +101,7 @@
     padding-top: 2px;
     float: left;
     width: 150px;
-    font-size: 14px;
+    font-size: 1.2em;
     font-weight: bold;
 }
 .dashboard_report_element_head_right {
@@ -126,7 +126,7 @@
 }
 .dashboard_table_head_element {
     float: left;
-    font-size: 12px;
+    font-size: 1em;
     font-weight: bold;
     border-right: 1px solid black;
     padding-left: 5px;
@@ -135,7 +135,7 @@
 }
 .dashboard_table_head_element_last {
     float: left;
-    font-size: 12px;
+    font-size: 1em;
     font-weight: bold;
     padding-left: 5px;
     padding-right: 5px;
@@ -144,11 +144,13 @@
 .dashboard_table_content_td {
     float: left;
     height: 20px;
+    padding-left: 5px;
     border-right: 1px solid #999;
 }
 
 .dashboard_table_content_td_end {
     float: left;
+    padding-left: 5px;
     height: 20px;
 }
 
@@ -163,13 +165,13 @@
 }
 
 .dashboard_table_content {
-    font-size: 12px;
+    font-size: 1em;
     padding: 5px;
     float: left;
     width: auto;
 }
 .dashboard_table_footer {
-    font-size: 12px;
+    font-size: 1em;
     padding: 5px;
     float: left;
     border-top: 1px solid black;
@@ -218,4 +220,15 @@
 .hbi_report_view1 {
     height: auto;
     border-top: 1px solid #aaa;
+}
+
+#hbi_map {
+    width: 260px;
+    height: 260px;
+    margin: 15px;
+}
+
+.hbi_map_dash {
+    width: 200px;
+    height: 200px;
 }
